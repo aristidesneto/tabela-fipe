@@ -18,20 +18,25 @@ A consulta pode ser realizada por 3 tipos de veículos:
 ```php
 <?php
 
-use Aristides\TabelaFIPE\Cars;
+use Aristides\TabelaFIPE\TabelaFipe;
+use Aristides\TabelaFIPE\Vehicle\Cars;
+
+require __DIR__ . '/vendor/autoload.php';
 
 $cars = new Cars;
+$tabela = new TabelaFipe($cars);
+
 // Lista todas as marcas
-// echo $cars->getBrands();
+// echo $tabela->marcas();
 
 // Lista todos os modelos de código 22 (Marca Ford)
-// echo $cars->getModels(22);
+// echo $tabela->modelos(22);
 
 // Lista todos os anos do modelo 4135 (Modelo Fiesta)
-// echo $cars->getYears(22, 4135);
+// echo $tabela->ano(22, 4135);
 
 // Lista todos as informações e valores do Ford Fiesta do ano de 2011
-echo $cars->getPrice(22, 4135, '2011-1');
+echo $tabela->preco(22, 4135, '2011-1');
 
 // Resultado
 {
@@ -52,15 +57,19 @@ echo $cars->getPrice(22, 4135, '2011-1');
 ```php
 <?php
 
-use Aristides\TabelaFIPE\Motorcycle;
+use Aristides\TabelaFIPE\TabelaFipe;
+use Aristides\TabelaFIPE\Vehicle\Motorcycle;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $motorcycle = new Motorcycle;
-// echo $motorcycle->getBrands();
-// echo $motorcycle->getModels(77);
-// echo $motorcycle->getYears(77, 8161);
-echo $motorcycle->getPrice(77, 8161, '2018-1');
+$tabela = new TabelaFipe($motorcycle);
+
+// Motos
+// echo $tabela->marcas();
+// echo $tabela->modelos(77);
+// echo $tabela->ano(77, 8161);
+echo $tabela->preco(77, 8161, '2018-1');
 
 // Response
 {
@@ -81,15 +90,19 @@ echo $motorcycle->getPrice(77, 8161, '2018-1');
 ```php
 <?php
 
-use Aristides\TabelaFIPE\Trucks;
+use Aristides\TabelaFIPE\TabelaFipe;
+use Aristides\TabelaFIPE\Vehicle\Trucks;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $truck = new Trucks;
-// echo $truck->getBrands();
-// echo $truck->getModels(109);
-// echo $truck->getYears(109, 4052);
-echo $truck->getPrice(109, 4052, '2012-3');
+$tabela = new TabelaFipe($truck);
+
+// Caminhões
+// echo $tabela->marcas();
+// echo $tabela->modelos(109);
+// echo $tabela->ano(109, 4052);
+echo $tabela->preco(109, 4052, '2012-3');
 
 // Response
 {
@@ -107,13 +120,13 @@ echo $truck->getPrice(109, 4052, '2012-3');
 
 ## Métodos disponíveis
 
-`getBrands()` Retorna todas as marcas
+`marcas()` Retorna todas as marcas
 
-`getModels(int $codBrand)` Retorna todos os modelos
+`modelos(int $codMarca)` Retorna todos os modelos
 
-`getYears(int $codBrand, int $codModel)` Retorna todos os anos
+`ano(int $codMarca, int $codModelo)` Retorna todos os anos
 
-`getPrice(int $codBrand, int $codModel, string $year)` Retorna os dados do veículo
+`preco(int $codMarca, int $codModelo, string $ano)` Retorna os dados do veículo
 
 ## Testes
 

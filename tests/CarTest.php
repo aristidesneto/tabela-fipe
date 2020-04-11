@@ -1,21 +1,24 @@
 <?php
 
-use Aristides\TabelaFIPE\Cars;
 use PHPUnit\Framework\TestCase;
+use Aristides\TabelaFIPE\TabelaFipe;
+use Aristides\TabelaFIPE\Vehicle\Cars;
 
 class CarTest extends TestCase
 {
     public function testCar()
     {
         $cars = new Cars;
-        $brands = $cars->getBrands();
-        $models = $cars->getModels(22);
-        $years = $cars->getYears(22, 4135);
-        $price = $cars->getPrice(22, 4135, '2011-1');
+        $tabela = new TabelaFipe($cars);
 
-        $this->assertNotNull($brands);
-        $this->assertNotNull($models);
-        $this->assertNotNull($years);
-        $this->assertNotNull($price);
+        $marcas = $tabela->marcas();
+        $modelos = $tabela->modelos(22);
+        $ano = $tabela->ano(22, 4135);
+        $preco = $tabela->preco(22, 4135, '2011-1');
+
+        $this->assertNotNull($marcas);
+        $this->assertNotNull($modelos);
+        $this->assertNotNull($ano);
+        $this->assertNotNull($preco);
     }
 }
