@@ -5,6 +5,17 @@ Biblioteca em PHP para pesquisar dados da tabela FIPE.
 
 Este pacote foi desenvolvido em base desse link: https://deividfortuna.github.io/fipe/
 
+## Demo
+
+Criei uma aplicação de exemplo em VueJs para consumir esse pacote. Para rodar execute os seguintes comandos:
+
+`git clone git@github.com:aristidesneto/tabela-fipe.git && cd tabela-fipe`
+`composer install`
+`php -S localhost:8080 -t demo/`
+
+![APP Tabela FIPE](demo/img/tabela-fipe.png)
+
+
 ## Como usar
 
 A consulta pode ser realizada por 3 tipos de veículos:
