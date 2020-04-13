@@ -2,18 +2,18 @@
 
 use PHPUnit\Framework\TestCase;
 use Aristides\TabelaFIPE\TabelaFipe;
-use Aristides\TabelaFIPE\Vehicle\Motorcycle;
+use Aristides\TabelaFIPE\Veiculo\Motos;
 
-class MotorcycleTest extends TestCase
+class MotosTest extends TestCase
 {
-    public function testMotorcycle()
+    public function testMotos()
     {
-        $motorcycle = new Motorcycle;
-        $tabela = new TabelaFipe($motorcycle);
+        $motos = new Motos;
+        $tabela = new TabelaFipe($motos);
 
         $marcas = $tabela->marcas();
         $modelos = $tabela->modelos(77);
-        $ano = $tabela->ano(77, 8161);
+        $ano = $tabela->anos(77, 8161);
         $preco = $tabela->preco(77, 8161, '2018-1');
 
         $this->assertNotNull($marcas);

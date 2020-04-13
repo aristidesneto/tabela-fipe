@@ -1,12 +1,12 @@
 <?php
 
-namespace Aristides\TabelaFIPE\Vehicle\Traits;
+namespace Aristides\TabelaFIPE\Veiculo\Traits;
 
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
-trait TraitVehicle
+trait TraitVeiculo
 {
     protected $client;
     protected $url;
@@ -17,55 +17,57 @@ trait TraitVehicle
         $this->url = getUrlFipe();
     }
 
-    public function getBrands()
+    public function getMarcas()
     {
         try {
-            $brands = $this->client->request('GET', "{$this->url}/{$this->vehicle}/marcas");
+            $marcas = $this->client->request('GET', "{$this->url}/{$this->veiculo}/marcas");
         } catch (ClientException $e) {
             echo Psr7\str($e->getRequest());
             echo Psr7\str($e->getResponse());
         }
 
-        return $brands->getBody();
+        return $marcas->getBody();
     }
 
-    public function getModels(int $brand)
+    public function getModelos(int $marca)
     {
         try {
-            $models = $this->client->request('GET', "{$this->url}/{$this->vehicle}/marcas/{$brand}/modelos");
-        } catch (ClientException $e) {
-            echo Psr7\str($e->getRequest());
-            echo Psr7\str($e->getResponse());
-        }
-
-        return $models->getBody();
-    }
-
-    public function getYears(int $brand, int $model)
-    {
-        try {
-            $years = $this->client->request(
-                'GET', "{$this->url}/{$this->vehicle}/marcas/{$brand}/modelos/{$model}/anos"
+            $modelos = $this->client->request(
+                'GET', "{$this->url}/{$this->veiculo}/marcas/{$marca}/modelos"
             );
         } catch (ClientException $e) {
             echo Psr7\str($e->getRequest());
             echo Psr7\str($e->getResponse());
         }
 
-        return $years->getBody();
+        return $modelos->getBody();
     }
 
-    public function getPrice(int $brand, int $model, string $year)
+    public function getAnos(int $marca, int $modelo)
     {
         try {
-            $price = $this->client->request(
-                'GET', "{$this->url}/{$this->vehicle}/marcas/{$brand}/modelos/{$model}/anos/{$year}"
+            $anos = $this->client->request(
+                'GET', "{$this->url}/{$this->veiculo}/marcas/{$marca}/modelos/{$modelo}/anos"
             );
         } catch (ClientException $e) {
             echo Psr7\str($e->getRequest());
             echo Psr7\str($e->getResponse());
         }
 
-        return $price->getBody();
+        return $anos->getBody();
+    }
+
+    public function getPreco(int $marca, int $modelo, string $ano)
+    {
+        try {
+            $preco = $this->client->request(
+                'GET', "{$this->url}/{$this->veiculo}/marcas/{$marca}/modelos/{$modelo}/anos/{$ano}"
+            );
+        } catch (ClientException $e) {
+            echo Psr7\str($e->getRequest());
+            echo Psr7\str($e->getResponse());
+        }
+
+        return $preco->getBody();
     }
 }

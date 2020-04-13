@@ -2,44 +2,44 @@
 
 namespace Aristides\TabelaFIPE;
 
-use Aristides\TabelaFIPE\Vehicle\Contracts\IVehicle;
+use Aristides\TabelaFIPE\Veiculo\Contratos\IVeiculo;
 
 class TabelaFipe
 {
     /**
-     * @var IVehicle
+     * @var IVeiculo
      */
-    protected $vechile;
+    protected $veiculo;
 
     /**
      * Recebe uma instancia de Veículo
      *
-     * @param IVehicle $vechile
+     * @param IVeiculo $veiculo
      */
-    public function __construct(IVehicle $vechile)
+    public function __construct(IVeiculo $veiculo)
     {
-        $this->vechile = $vechile;
+        $this->veiculo = $veiculo;
     }
 
     /**
      * Retorna todas as marcas do veículo
      *
-     * @return void
+     * @return json
      */
     public function marcas()
     {
-        return $this->vechile->getBrands();
+        return $this->veiculo->getMarcas();
     }
 
     /**
      * Retorna os modelos
      *
      * @param integer ID da marca
-     * @return void
+     * @return json
      */
     public function modelos(int $marca)
     {
-        return $this->vechile->getModels($marca);
+        return $this->veiculo->getModelos($marca);
     }
 
     /**
@@ -47,11 +47,11 @@ class TabelaFipe
      *
      * @param integer ID da marca
      * @param integer ID do modelo
-     * @return void
+     * @return json
      */
-    public function ano(int $marca, int $modelo)
+    public function anos(int $marca, int $modelo)
     {
-        return $this->vechile->getYears($marca, $modelo);
+        return $this->veiculo->getAnos($marca, $modelo);
     }
 
     /**
@@ -60,10 +60,10 @@ class TabelaFipe
      * @param integer ID da marca
      * @param integer ID do modelo
      * @param string Ano referente
-     * @return void
+     * @return json
      */
     public function preco(int $marca, int $modelo, string $ano)
     {
-        return $this->vechile->getPrice($marca, $modelo, $ano);
+        return $this->veiculo->getPreco($marca, $modelo, $ano);
     }
 }

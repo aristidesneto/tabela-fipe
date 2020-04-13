@@ -31,7 +31,7 @@ A consulta pode ser realizada por 3 tipos de veículos:
 <?php
 
 use Aristides\TabelaFIPE\TabelaFipe;
-use Aristides\TabelaFIPE\Vehicle\Cars;
+use Aristides\TabelaFIPE\Veiculo\Cars;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -70,7 +70,7 @@ echo $tabela->preco(22, 4135, '2011-1');
 <?php
 
 use Aristides\TabelaFIPE\TabelaFipe;
-use Aristides\TabelaFIPE\Vehicle\Motorcycle;
+use Aristides\TabelaFIPE\Veiculo\Motorcycle;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -103,7 +103,7 @@ echo $tabela->preco(77, 8161, '2018-1');
 <?php
 
 use Aristides\TabelaFIPE\TabelaFipe;
-use Aristides\TabelaFIPE\Vehicle\Trucks;
+use Aristides\TabelaFIPE\Veiculo\Trucks;
 
 require __DIR__ . '/vendor/autoload.php';
 

@@ -6,7 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $params = filter_input_array(INPUT_POST);
 
-$vehicle = "Aristides\\TabelaFIPE\\Vehicle\\" . ucfirst($params['veiculo']);
+$vehicle = "Aristides\\TabelaFIPE\\Veiculo\\" . ucfirst($params['veiculo']);
 
 $class = new $vehicle();
 $tabela = new TabelaFipe($class);
