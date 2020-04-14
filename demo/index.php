@@ -40,9 +40,9 @@
 							<div class="col-sm-8">
 								<select name="veiculo" id="veiculo" v-model="veiculoSelected" class="form-control" @change="getMarca($event)">
                                     <option value="">Selecione</option>
-                                    <option value="cars">Carros</option>
-                                    <option value="trucks">Caminhões</option>
-                                    <option value="motorcycle">Motos</option>
+                                    <option value="carros">Carros</option>
+                                    <option value="caminhoes">Caminhões</option>
+                                    <option value="motos">Motos</option>
                                 </select>
                             </div>
 						</div>

@@ -11,6 +11,4 @@ use Aristides\TabelaFIPE\Veiculo\Traits\TraitVeiculo;
 class Motos implements IVeiculo
 {
     use TraitVeiculo;
-
-    protected $veiculo = 'motos';
 }

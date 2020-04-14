@@ -10,17 +10,21 @@ trait TraitVeiculo
 {
     protected $client;
     protected $url;
+    protected $veiculo;
 
     public function __construct()
     {
-        $this->client = new Client();
         $this->url = getUrlFipe();
+        $this->client = new Client();
+        $this->veiculo = strtolower($this->getNomeClasse());
     }
 
     public function getMarcas()
     {
         try {
-            $marcas = $this->client->request('GET', "{$this->url}/{$this->veiculo}/marcas");
+            $marcas = $this->client->request(
+                'GET', "{$this->url}/{$this->veiculo}/marcas"
+            );
         } catch (ClientException $e) {
             echo Psr7\str($e->getRequest());
             echo Psr7\str($e->getResponse());
@@ -69,5 +73,10 @@ trait TraitVeiculo
         }
 
         return $preco->getBody();
+    }
+
+    public function getNomeClasse()
+    {
+        return (new \ReflectionClass($this))->getShortName();
     }
 }

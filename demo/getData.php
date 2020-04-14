@@ -6,10 +6,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $params = filter_input_array(INPUT_POST);
 
-$vehicle = "Aristides\\TabelaFIPE\\Veiculo\\" . ucfirst($params['veiculo']);
+$veiculo = "Aristides\\TabelaFIPE\\Veiculo\\" . ucfirst($params['veiculo']);
 
-$class = new $vehicle();
-$tabela = new TabelaFipe($class);
+$veiculo = new $veiculo();
+$tabela = new TabelaFipe($veiculo);
 
 // Tipo de busca
 switch ($params['search']) {
@@ -18,7 +18,7 @@ switch ($params['search']) {
         break;
 
     case 'ano':
-        $result = $tabela->ano($params['marca'], $params['modelo']);
+        $result = $tabela->anos($params['marca'], $params['modelo']);
         break;
 
     case 'preco':

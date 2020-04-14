@@ -15,4 +15,7 @@ interface IVeiculo
 
     /** Preço */
     public function getPreco(int $marca, int $modelo, string $ano);
+
+    /** Obtém o nome da classe instanciada */
+    public function getNomeClasse();
 }
